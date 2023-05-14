@@ -28,7 +28,7 @@ void main() {
     final result = await usecase("jacob");
 
     // expect(result, isA<Right>());
-    expect(result! | null, isA<List<ResultSearch>>());
+    expect(result | null, isA<List<ResultSearch>>());
   });
 
   test('deve retornar uma exception caso o texto seja invalido', () async {
@@ -38,9 +38,9 @@ void main() {
     var result = await usecase(null);
     //expect(result!.isLeft(), true);
     // expect(result.fold((l) => l, (r) => r)
-    expect(result!.fold(id, id), isA<InvalidTextError>()); //id e do dartz
+    expect(result.fold(id, id), isA<InvalidTextError>()); //id e do dartz
 
     result = await usecase("");
-    expect(result!.fold(id, id), isA<InvalidTextError>()); //id e do dartz
+    expect(result.fold(id, id), isA<InvalidTextError>()); //id e do dartz
   });
 }

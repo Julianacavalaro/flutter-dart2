@@ -15,12 +15,13 @@ class SearchDatasourceMock extends Mock implements SearchDataSource {}
   final datasource = SearchDatasourceMock();
   final repository = SearchRepositoryImpl(datasource);
 
+
   test('deve retornar uma lista de ResultSearch', () async{
     when(datasource.getSearch(any))
     .thenAnswer((_) async => <ResultSearchModel>[]);
     final result = await repository.search("jacob");
 
-    expect(result!|null, isA<List<ResultSearch?>?>());
+    expect(result|null, isA<List<ResultSearch>>());
   });
 
     test('deve retornar um DatasourceError se o datasource falhar', () async{

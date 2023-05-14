@@ -4,7 +4,8 @@ abstract class FailureSearch implements Exception {
 class InvalidTextError implements FailureSearch {}
 
 class DatasourceError implements FailureSearch {
-  final String? message;
+  String message= "Retorna se o c[odigo nao for 200]";
+  
 
   DatasourceError({this.message});
 }

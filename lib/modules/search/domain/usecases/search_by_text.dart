@@ -4,7 +4,7 @@ import 'package:github_search/modules/search/domain/errors/errors.dart';
 import 'package:github_search/modules/search/domain/repositories/search_repository.dart';
 
 abstract class SearchByText {
-  Future<Either<FailureSearch, List<ResultSearch?>?>?>? call(String? searchText);
+  Future<Either<FailureSearch, List<ResultSearch>>> call(String searchText);
 }
 
 class SearchByTextImpl implements SearchByText {
@@ -13,9 +13,9 @@ class SearchByTextImpl implements SearchByText {
   SearchByTextImpl(this.repository);
 
   @override
-  Future<Either<FailureSearch, List<ResultSearch?>?>?>? call(       //Either retorna um left ou um right
+  Future<Either<FailureSearch, List<ResultSearch>>> call(       //Either retorna um left ou um right
 
-      String? searchText) async {
+      String searchText) async {
     if (searchText == null || searchText.isEmpty) {
        return Left(InvalidTextError());
     }

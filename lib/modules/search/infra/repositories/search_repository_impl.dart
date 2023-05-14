@@ -11,8 +11,8 @@ class SearchRepositoryImpl implements SearchRepository {
   SearchRepositoryImpl(this.datasource);
 
   @override
-  Future<Either<FailureSearch, List<ResultSearch?>?>?>? search(
-      String? searchText) async {
+  Future<Either<FailureSearch, List<ResultSearch>>> search(
+      String searchText) async {
 // intercepta;ao de dados externos
     try {
       final result = await datasource.getSearch(searchText);
